@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "Promotion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "promotion_code": {
+      "type": "string"
+    },
+    "code_status": {
+      "type": "enumeration",
+      "enum": [
+        "used",
+        "unused"
+      ],
+      "default": "unused"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "promotion"
+    }
+  }
+}
